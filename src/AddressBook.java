@@ -41,5 +41,10 @@ public class AddressBook {
                 .collect(Collectors.groupingBy(Contact::getCity,
                         Collectors.counting()));
     }
+    public void sortByName() {
+        contacts.stream()
+                .sorted(Comparator.comparing(Contact::getFirstName))
+                .forEach(System.out::println);
+    }
 
 }
