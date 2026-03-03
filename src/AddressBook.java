@@ -1,6 +1,6 @@
 import java.util.ArrayList;
-import java.util.List;
-
+import java.util.*;
+import java.util.stream.Collectors;
 public class AddressBook {
 
     private List<Contact> contacts = new ArrayList<>();
@@ -31,6 +31,10 @@ public class AddressBook {
     }
     public void deleteContact(String firstName) {
         contacts.removeIf(c -> c.getFirstName().equalsIgnoreCase(firstName));
+    }
+    public Map<String, List<Contact>> groupByCity() {
+        return contacts.stream()
+                .collect(Collectors.groupingBy(Contact::getCity));
     }
 
 }
