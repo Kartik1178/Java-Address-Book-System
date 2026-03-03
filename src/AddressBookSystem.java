@@ -12,7 +12,12 @@ public class AddressBookSystem {
     public AddressBook getAddressBook(String name) {
         return addressBooks.get(name);
     }
-
+    public void searchByCity(String city) {
+        addressBooks.values().stream()
+                .flatMap(book -> book.getContacts().stream())
+                .filter(c -> c.getCity().equalsIgnoreCase(city))
+                .forEach(System.out::println);
+    }
     public Map<String, AddressBook> getAllAddressBooks() {
         return addressBooks;
     }
