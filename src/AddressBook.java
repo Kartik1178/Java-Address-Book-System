@@ -6,7 +6,14 @@ public class AddressBook {
     private List<Contact> contacts = new ArrayList<>();
 
     public void addContact(Contact contact) {
-        contacts.add(contact);
+        boolean exists = contacts.stream()
+                .anyMatch(c -> c.equals(contact));
+
+        if (exists) {
+            System.out.println("Duplicate Contact!");
+        } else {
+            contacts.add(contact);
+        }
     }
 
     public List<Contact> getContacts() {
