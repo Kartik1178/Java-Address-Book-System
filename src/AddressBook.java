@@ -36,5 +36,10 @@ public class AddressBook {
         return contacts.stream()
                 .collect(Collectors.groupingBy(Contact::getCity));
     }
+    public Map<String, Long> countByCity() {
+        return contacts.stream()
+                .collect(Collectors.groupingBy(Contact::getCity,
+                        Collectors.counting()));
+    }
 
 }
