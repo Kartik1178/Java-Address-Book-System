@@ -46,5 +46,10 @@ public class AddressBook {
                 .sorted(Comparator.comparing(Contact::getFirstName))
                 .forEach(System.out::println);
     }
+    public void sortByCity() {
+        contacts.stream()
+                .sorted(Comparator.comparing(Contact::getCity))
+                .forEach(System.out::println);
+    }
 
 }
